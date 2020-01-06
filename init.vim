@@ -30,9 +30,6 @@ Plug 'stefandtw/quickfix-reflector.vim'                           " make modific
 Plug 'cloudhead/neovim-fuzzy'                                     " yet another fuzzy finder
 Plug 'neomake/neomake'                                            " linting and make framework for Neovim/Vim
 Plug 'edma2/vim-pants'                                            " Pants Build tooling
-" Plug 'easymotion/vim-easymotion'
-" Plug 'tpope/vim-repeat'
-" Plug 'Xuyuanp/nerdtree-git-plugin'                              " Shows files git status on the NerdTree
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " For Markdown
 
 call plug#end()
@@ -46,9 +43,6 @@ let g:rg_command = 'rg --vimgrep -S'
 " airline: status bar at the bottom
 let g:airline_powerline_fonts=1
 
-" if you want to disable auto detect, comment out those two lines (COC)
-"let g:airline#extensions#disable_rtp_load = 1
-"let g:airline_extensions = ['branch', 'hunks', 'coc']
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
@@ -135,7 +129,6 @@ map <C-S> :NERDTreeFind<CR>
 let mapleader=','
 set backspace=2
 colorscheme dracula
-" colorscheme torte
 syntax on
 set shell=/bin/bash
 set laststatus=2
@@ -177,9 +170,6 @@ set ignorecase " Case insensitive.
 set smartcase  " Case insensitive if no uppercase letter in pattern, case sensitive otherwise.
 set nowrapscan " Don't go back to first match after the last match is found.
 
-" Fold
-" set foldmethod=indent
-" set foldlevelstart=1
 
 " Tabs
 set expandtab     " Tab transformed in spaces
@@ -203,29 +193,8 @@ augroup END
 nnoremap <C-p> :FZF<CR>
 
 " Disable touchpad on startup / Enable it back on exit (at the OS level)
-"autocmd VimEnter * !~/development/touchpad-off.sh
-"autocmd VimLeave * !~/development/touchpad-on.sh
 nnoremap <silent> <F3> :!~/development/touchpad-toggle.sh <enter><CR>
 
-" Disable arrow keys and page up / down
-" noremap <Up> <nop>
-" noremap <Down> <nop>
-" noremap <Left> <nop>
-" noremap <Right> <nop>
-" inoremap <Up> <nop>
-" inoremap <Down> <nop>
-" inoremap <Left> <nop>
-" inoremap <Right> <nop>
-" vnoremap <Up> <nop>
-" vnoremap <Down> <nop>
-" vnoremap <Left> <nop>
-" vnoremap <Right> <nop>
-" noremap <PageUp> <nop>
-" inoremap <PageUp> <nop>
-" vnoremap <PageUp> <nop>
-" noremap <PageDown> <nop>
-" inoremap <PageDown> <nop>
-" vnoremap <PageDown> <nop>
 
 " Disable mouse / touchpad (only in vim)
 set mouse=a
@@ -326,7 +295,6 @@ nnoremap <leader> <Esc> :pclose<CR>
 nnoremap <silent> <M-B> :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-import' })<CR>
 nnoremap <silent> <M-D> :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'doctor-run' })><CR>
 nnoremap <silent> <M-C> :call CocRequestAsync('metals', 'workspace/executeCommand', { 'command': 'build-connect' })<CR>
-"nnoremap <silent> <M-Z> :ccl<CR>
 
 " COC Snippets
 
@@ -344,23 +312,6 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-
-" No preview window on autocompletion (vim-lsc)
-"set completeopt-=preview
-
-" Close preview window on autocompletion (metals / vim-lsc)
-"autocmd CompleteDone * silent! pclose
-
-" Haskell plugins
-nnoremap <silent> ;h :execute "Unite -start-insert haskellimport"<CR>
-"nnoremap <silent> <C-h> :execute "Unite hoogle"<CR> " too slow
-
-" Diagnostics highlighting
-"hi link ALEError Error
-"hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
-"hi link ALEWarning Warning
-"hi link ALEInfo SpellCap
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '

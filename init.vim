@@ -1,42 +1,56 @@
 set directory=~/.vim/backup
-set backupdir=~/.vim/backup " keep swap files here
-filetype off                " required
+  set backupdir=~/.vim/backup " keep swap files here
+  filetype off                " required
+  
+  call plug#begin('~/.local/share/nvim/plugged')
+  
+  " Git Plugins
+  Plug 'tpope/vim-fugitive'                                         " Git plugin
+  Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
+  
+  " Colors and Themes
+  Plug 'lifepillar/vim-solarized8'                                  " Solarized8
+  Plug 'dracula/vim'                                                " Dark theme
+  
+  " Usability
+  Plug 'stefandtw/quickfix-reflector.vim'                           " Make modifications right in the quickfix window
+  Plug 'vim-airline/vim-airline'                                    " Bottom status bar
+  Plug 'vim-airline/vim-airline-themes'                             " Airline themes for colorscheme
+  Plug 'tpope/vim-repeat'                                           " For repeating commands
+  Plug 'easymotion/vim-easymotion'
+  Plug 'tpope/vim-surround'                                         " Quickly edit surroundings (brackets, html tags, etc)
+  Plug 'preservim/nerdtree'                                         " Folders tree
+  Plug 'scrooloose/nerdcommenter'                                   " Code commenter
+  Plug 'kien/rainbow_parentheses.vim'                               " For nested parentheses
+  Plug 'junegunn/vim-easy-align'                                    " Alignment plugin
+  Plug 'Valloric/MatchTagAlways'                                    " Highlights html enclosing tags
+  Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors selection, etc
+  
+  " Search and workflow
+  Plug 'jremmen/vim-ripgrep'                                        " Blazing fast search using ripgrep
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder conf
+  Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for search
+  Plug 'cloudhead/neovim-fuzzy'                                     " Yet another fuzzy finder
+  Plug 'lifepillar/vim-solarized8'                                  " Solarized8
+  Plug 'neomake/neomake'                                            " Run programs asynchronously and highlight errors
+  
+  " Haskell plugins 
+  Plug 'Twinside/vim-hoogle'                                        " Hoogle search (Haskell) in Vim 
+  Plug 'Shougo/unite.vim'                                           " Required by some haskell plugins 
+  Plug 'ujihisa/unite-haskellimport'                                " Suggestions on imports 
+  Plug 'vmchale/dhall-vim'                                          " Syntax highlighting for Dhall lang 
+   
+  " Scala Plugins                                                                                                                                                                                                                                                                         
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin 
+  Plug 'itchyny/lightline.vim'                                      " Configurable status line (can be used by coc) 
+  Plug 'derekwyatt/vim-scala'                                       " Scala plugin 
+  Plug 'edma2/vim-pants'                                            " Pants Build tooling 
+   
+  " Markdown 
+  Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " Markdown 
+  Plug 'justinmk/vim-sneak' 
 
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'tpope/vim-fugitive'                                         " git plugin
-Plug 'vim-airline/vim-airline'                                    " bottom status bar
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder conf
-Plug 'junegunn/fzf.vim'                                           " fuzzy finder
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTogle'}              " folders tree
-Plug 'scrooloose/nerdcommenter'                                   " code commenter
-Plug 'dracula/vim'                                                " dark theme
-Plug 'kien/rainbow_parentheses.vim'                               " for nested parentheses
-Plug 'tpope/vim-surround'                                         " quickly edit surroundings (brackets, html tags, etc)
-Plug 'junegunn/vim-easy-align'                                    " alignment plugin
-Plug 'neomake/neomake'                                            " run programs asynchronously and highlight errors
-Plug 'Valloric/MatchTagAlways'                                    " highlights html enclosing tags
-Plug 'Twinside/vim-hoogle'                                        " Hoogle search (Haskell) in Vim
-Plug 'Shougo/unite.vim'                                           " Required by some haskell plugins
-Plug 'ujihisa/unite-haskellimport'                                " Suggestions on imports
-Plug 'vmchale/dhall-vim'                                          " Syntax highlighting for Dhall lang
-Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors selection, etc
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin
-Plug 'itchyny/lightline.vim'                                      " configurable status line (can be used by coc)
-Plug 'derekwyatt/vim-scala'                                       " scala plugin
-Plug 'jremmen/vim-ripgrep'                                        " blazing fast search using ripgrep
-Plug 'stefandtw/quickfix-reflector.vim'                           " make modifications right in the quickfix window
-Plug 'cloudhead/neovim-fuzzy'                                     " yet another fuzzy finder
-Plug 'neomake/neomake'                                            " linting and make framework for Neovim/Vim
-Plug 'edma2/vim-pants'                                            " Pants Build tooling
-" Plug 'easymotion/vim-easymotion'
-" Plug 'tpope/vim-repeat'
-" Plug 'Xuyuanp/nerdtree-git-plugin'                              " Shows files git status on the NerdTree
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " For Markdown
-" Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
-
-call plug#end()
+ call plug#end()
 
 " End of plugins here
 " ===================

@@ -48,7 +48,6 @@ set directory=~/.vim/backup
    
   " Markdown 
   Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " Markdown 
-  Plug 'justinmk/vim-sneak' 
 
  call plug#end()
 

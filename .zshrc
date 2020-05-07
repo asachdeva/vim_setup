@@ -93,12 +93,3 @@ eval `dircolors ~/.dir_colors/dircolors`
 
 # Yank Hostname from prompt
 prompt_context() {}
-
-# CITRINE OVERRIDES
-CITRINE_DEVENV_DIR=~/devenv
-CITRINE_RC_COMMON=$CITRINE_DEVENV_DIR/config/rc_common
-CITRINEIDFILE=~/.citrineid
-
-export CITRINEID=`cat $CITRINEIDFILE`
-alias awssu-auth-dev='source $EISH_HOME/awssu -p xact -t -r $(ci-role-arn.sh -n development -r operator) -u $CITRINEID'
-alias awssu-auth-dev2='source $EISH_HOME/awssu -p auth -r arn:aws:iam::`ci-account-lookup.sh -n development`:role/operator -u asachdeva -t'

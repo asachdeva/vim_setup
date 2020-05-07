@@ -3,7 +3,7 @@ vim_setup
 
 My `NeoVim` setup for Scala development using [coc.nvim](https://github.com/neoclide/coc.nvim) as my LSP client.
 
-Note: I have mapped my Windows Key to Meta as opposed to Right Alt.
+Note: My keyboard layout is ```Alt and Meta are on Alt```
 
 ### [Scala Metals LSP](https://scalameta.org/metals/docs/editors/vim.html) on NeoVim
 

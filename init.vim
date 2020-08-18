@@ -1,58 +1,84 @@
 set directory=~/.vim/backup
-  set backupdir=~/.vim/backup " keep swap files here
-  filetype off                " required
-  
-  call plug#begin('~/.local/share/nvim/plugged')
-  
-  " Git Plugins
-  Plug 'tpope/vim-fugitive'                                         " Git plugin
-  Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
-  
-  " Colors and Themes
-  Plug 'lifepillar/vim-solarized8'                                  " Solarized8
-  Plug 'dracula/vim'                                                " Dark theme
-  
-  " Usability
-  Plug 'stefandtw/quickfix-reflector.vim'                           " Make modifications right in the quickfix window
-  Plug 'vim-airline/vim-airline'                                    " Bottom status bar
-  Plug 'vim-airline/vim-airline-themes'                             " Airline themes for colorscheme
-  Plug 'tpope/vim-repeat'                                           " For repeating commands
-  Plug 'easymotion/vim-easymotion'
-  Plug 'tpope/vim-surround'                                         " Quickly edit surroundings (brackets, html tags, etc)
-  Plug 'preservim/nerdtree'                                         " Folders tree
-  Plug 'scrooloose/nerdcommenter'                                   " Code commenter
-  Plug 'kien/rainbow_parentheses.vim'                               " For nested parentheses
-  Plug 'junegunn/vim-easy-align'                                    " Alignment plugin
-  Plug 'Valloric/MatchTagAlways'                                    " Highlights html enclosing tags
-  Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors selection, etc
-  
-  " Search and workflow
-  Plug 'jremmen/vim-ripgrep'                                        " Blazing fast search using ripgrep
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder conf
-  Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for search
-  Plug 'cloudhead/neovim-fuzzy'                                     " Yet another fuzzy finder
-  Plug 'lifepillar/vim-solarized8'                                  " Solarized8
-  Plug 'neomake/neomake'                                            " Run programs asynchronously and highlight errors
-  
-  " Haskell plugins 
-  Plug 'Twinside/vim-hoogle'                                        " Hoogle search (Haskell) in Vim 
-  Plug 'Shougo/unite.vim'                                           " Required by some haskell plugins 
-  Plug 'ujihisa/unite-haskellimport'                                " Suggestions on imports 
-  Plug 'vmchale/dhall-vim'                                          " Syntax highlighting for Dhall lang 
-   
-  " Scala Plugins                                                                                                                                                                                                                                                                         
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin 
-  Plug 'itchyny/lightline.vim'                                      " Configurable status line (can be used by coc) 
-  Plug 'derekwyatt/vim-scala'                                       " Scala plugin 
-  Plug 'edma2/vim-pants'                                            " Pants Build tooling 
-   
-  " Markdown 
-  Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " Markdown 
+set backupdir=~/.vim/backup " keep swap files here
+filetype off                " required
 
- call plug#end()
+if exists('g:vscode')
+    call plug#begin('~/.local/share/nvim/plugged')
 
-" End of plugins here
+    " common start
+    Plug 'tpope/vim-surround'
+    Plug 'justinmk/vim-sneak'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-commentary'
+    Plug 'scrooloose/nerdcommenter'                                   " Code commenter
+    " common end
+
+    Plug 'asvetliakov/vim-easymotion'
+
+    call plug#end()
+  else
+"call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
+
+" Git Plugins
+Plug 'tpope/vim-fugitive'                                         " Git plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'                                " shows files git status on the NerdTree
+
+" Colors and Themes
+Plug 'lifepillar/vim-solarized8'                                  " Solarized8
+Plug 'dracula/vim'                                                " Dark theme
+
+" Usability
+Plug 'stefandtw/quickfix-reflector.vim'                           " Make modifications right in the quickfix window
+Plug 'vim-airline/vim-airline'                                    " Bottom status bar
+Plug 'vim-airline/vim-airline-themes'                             " Airline themes for colorscheme
+Plug 'tpope/vim-repeat'                                           " For repeating commands
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'                                         " Quickly edit surroundings (brackets, html tags, etc)
+Plug 'preservim/nerdtree'                                         " Folders tree
+Plug 'scrooloose/nerdcommenter'                                   " Code commenter
+Plug 'kien/rainbow_parentheses.vim'                               " For nested parentheses
+Plug 'junegunn/vim-easy-align'                                    " Alignment plugin
+Plug 'Valloric/MatchTagAlways'                                    " Highlights html enclosing tags
+Plug 'terryma/vim-multiple-cursors'                               " Multiple cursors selection, etc
+Plug 'Yggdroot/indentline'                                        " Indent Line
+
+" Search and workflow
+Plug 'jremmen/vim-ripgrep'                                        " Blazing fast search using ripgrep
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder conf
+Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for search
+Plug 'cloudhead/neovim-fuzzy'                                     " Yet another fuzzy finder
+Plug 'lifepillar/vim-solarized8'                                  " Solarized8
+Plug 'neomake/neomake'                                            " Run programs asynchronously and highlight errors
+
+" Haskell plugins
+Plug 'Twinside/vim-hoogle'                                        " Hoogle search (Haskell) in Vim
+Plug 'Shougo/unite.vim'                                           " Required by some haskell plugins
+Plug 'ujihisa/unite-haskellimport'                                " Suggestions on imports
+Plug 'vmchale/dhall-vim'                                          " Syntax highlighting for Dhall lang
+
+" Scala Plugins
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}        " LSP client + autocompletion plugin
+Plug 'itchyny/lightline.vim'                                      " Configurable status line (can be used by coc)
+Plug 'derekwyatt/vim-scala'                                       " Scala plugin
+
+" Markdown
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}             " Markdown
+Plug 'justinmk/vim-sneak'
+
+Plug 'vimwiki/vimwiki'                                             " Vimwiki
+call plug#end()
+
+endif
+
 " ===================
+
+let mapleader=","
+
+let g:python3_host_prog = '/usr/bin/python3'
 
 " ripgrep smartcase (search with case insensitive)
 let g:rg_command = 'rg --vimgrep -S'
@@ -79,6 +105,7 @@ set encoding=utf-8
 
 " Handle window actions with Meta instead of <C-w>
 " Switching
+" Note: Meta Key in Ubuntu is right Alt key that can be remapped
 nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
@@ -105,7 +132,7 @@ nnoremap <C-z> :nohlsearch<CR>
 :tnoremap <Esc> <C-\><C-n>
 
 " Nerdtree git plugin symbols
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "ᵐ",
     \ "Staged"    : "ˢ",
     \ "Untracked" : "ᵘ",
@@ -148,10 +175,9 @@ map <C-S> :NERDTreeFind<CR>
 " Other options
 let mapleader=','
 set backspace=2
-colorscheme dracula
-" colorscheme torte
+colorscheme solarized8_flat
 syntax on
-set shell=/bin/bash
+set shell=/bin/zsh
 set laststatus=2
 set noshowmode
 
@@ -165,7 +191,7 @@ set guicursor=
 " NerdTree config
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-
+let NERDTreeShowHidden=1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 
@@ -207,7 +233,7 @@ set shiftwidth=2  " column offset when using keys '>' and '<' in normal mode.
 nnoremap <leader>l :set list!<CR>
 
 " Auto-commands
-" Vimscript
+" Vimscripth
 augroup vimscript_augroup
   autocmd!
   autocmd FileType vim nnoremap <buffer> <M-z> :execute "help" expand("<cword>")<CR>
@@ -284,7 +310,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` for navigate diagnostics
+" Use `[c` and `]c` for navigate diagnosticsFailed to start bloop.service: Unit bloop.service not found
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
@@ -388,3 +414,4 @@ autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
+set relativenumber
